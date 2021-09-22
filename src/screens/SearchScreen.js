@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from "react-native";
 import SearchBar from "../components/SearchBar";
 import useResults from "../hooks/useResults";
+import ResultList from "../components/ResultList";
 
 const SearchScreen = () => {
 
@@ -19,7 +20,9 @@ const SearchScreen = () => {
                 onTermSubmitted={() => searchApi(term)}
             />
             {errorMessage ? <Text>{errorMessage}</Text>: null}
-            <Text>Abbiamo trovato {results.length} ristoranti</Text>
+            <ResultList title="Cost effective" />
+            <ResultList title="Bit Pricier" />
+            <ResultList title="Big Expensive" />
         </View>
     );
 };
