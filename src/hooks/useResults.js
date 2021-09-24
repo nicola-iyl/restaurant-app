@@ -9,9 +9,9 @@ export default () =>{
         try{
             const response = await yelp.get('search',{
                 params:{
-                    limit:50,
+                    limit:5,
                     term:searchTerm,
-                    location:'Milano'
+                    location:'Cerreto Guidi'
                 }
             });
             setResults(response.data.businesses);
@@ -25,6 +25,7 @@ export default () =>{
     //chiamo la search Api quando la schermata viene renderizzata per la prima volta
     useEffect(() => {
         searchApi('pasta');
+        console.log(results)
     },[]);
 
     return [searchApi,results,errorMessage];

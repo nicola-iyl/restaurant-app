@@ -10,6 +10,7 @@ const ResultDetail = ({item})=>{
             />
             <Text style={styles.title}>{item.name}</Text>
             <Text>Rating: { item.rating } , Reviews:{ item.review_count }</Text>
+            <Text>Prezzo: { item.price } </Text>
         </View>
     );
 }
