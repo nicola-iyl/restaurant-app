@@ -9,8 +9,12 @@ const SearchScreen = () => {
     const [term,setTerm] = useState('');
     const [searchApi,results,errorMessage] = useResults();
 
-
-    //chiamo la search Api quando la schermata viene renderizzata per la prima volta
+    const filterResultByPrice = (price) =>{
+        //price = '$' || '$$' || '$$$'
+        return results.filter((result)=>{
+            return result.price === price;
+        })
+    }
 
     return(
         <View>
@@ -20,9 +24,10 @@ const SearchScreen = () => {
                 onTermSubmitted={() => searchApi(term)}
             />
             {errorMessage ? <Text>{errorMessage}</Text>: null}
-            <ResultList title="Cost effective" />
-            <ResultList title="Bit Pricier" />
-            <ResultList title="Big Expensive" />
+            <Text>abbiamo trovato {results.length} risultati</Text>
+            <ResultList results={filterResultByPrice('$')} title="Cost effective" />
+            <ResultList results={filterResultByPrice('$$')} title="Bit Pricier" />
+            <ResultList results={filterResultByPrice('$$$')} title="Big Expensive" />
         </View>
     );
 };

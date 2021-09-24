@@ -22,6 +22,7 @@ export default () =>{
 
     };
 
+    //chiamo la search Api quando la schermata viene renderizzata per la prima volta
     useEffect(() => {
         searchApi('pasta');
     },[]);
